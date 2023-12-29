@@ -56,7 +56,7 @@ NoeudReservation* PopReservation(NoeudReservation** stack) {
 void CreerCompteVoyageur(Voyageur* voyageur) {
     printf("Entrez le nom du voyageur : ");
     scanf("%s", voyageur->nom);
-    printf("Entrez le prénom du voyageur : ");
+    printf("Entrez le prÃ©nom du voyageur : ");
     scanf("%s", voyageur->prenom);
     printf("Entrer le numero de Telephone: ");
     scanf("%d", &voyageur->tel);
@@ -66,7 +66,7 @@ void CreerCompteVoyageur(Voyageur* voyageur) {
 
 void CreerReservation() {
     int numero_bus;
-    printf("Entrez le numéro du bus(1-10) : ");
+    printf("Entrez le numÃ©ro du bus(1-10) : ");
     scanf("%d", &numero_bus);
     if (numero_bus < 1 || numero_bus > 10 || buses[numero_bus - 1].places_disponibles == 0) {
         printf("Le bus n'est pas disponible.\n");
@@ -84,11 +84,11 @@ void CreerReservation() {
 
     AjouterReservation(&pilereservation.top, nouvelle_reservation);
 
-    printf("La réservation a été créée avec succès. Numéro de réservation : %d\n", nouvelle_reservation->numero_reservation);
+    printf("La reservation a Ã©tÃ© cree avec succÃ¨s. Numero de reservation : %d\n", nouvelle_reservation->numero_reservation);
 }
 
 void AfficherDetailsBus() {
-    printf("Détails des bus :\n");
+    printf("DÃ©tails des bus :\n");
     for (int i = 0; i < 10; i++) {
         printf("Bus %d - Destination : %s, Places disponibles : %d    *   Prix : %s\n", buses[i].numero, buses[i].destination, buses[i].places_disponibles, buses[i].prix);
     }
@@ -96,7 +96,7 @@ void AfficherDetailsBus() {
 
 void AfficherModifierDetailsReservation() {
     int numero_reservation;
-    printf("Entrez le numéro de réservation : ");
+    printf("Entrez le numero de reservation : ");
     scanf("%d", &numero_reservation);
 
     NoeudReservation* current = reservationList;
@@ -104,12 +104,12 @@ void AfficherModifierDetailsReservation() {
         current = current->next;
     }
     if (current == NULL) {
-        printf("La réservation n'existe pas.\n");
+        printf("La reservation n'existe pas.\n");
         return;
     }
-    printf("Détails de la réservation :\n");
-    printf("Numéro de réservation : %d\n", current->numero_reservation);
-    printf("Numéro du bus : %d\n", current->numero_bus);
+    printf("Details de la reservation :\n");
+    printf("NumÃ©ro de reservation : %d\n", current->numero_reservation);
+    printf("NumÃ©ro du bus : %d\n", current->numero_bus);
     printf("Nom du voyageur : %s %s\n", current->voyageur.nom, current->voyageur.prenom);
 
 
@@ -137,7 +137,7 @@ void LibererPile(NoeudReservation** stack) {
     }
 }
 void EnvoyerVotreAvis() {
-    printf("Entrez votre avis (max 500 caractères) : ");
+    printf("Entrez votre avis (max 500 caractÃ¨res) : ");
     scanf(" %[^\n]",&avis);
     printf("Merci pour votre avis !\n");
 }
@@ -154,10 +154,10 @@ int main() {
     int choix;
     do {
         printf("\nBIENVENUE au Menu *TUNIS*:\n");
-        printf("1. Créer un nouveau compte voyageur\n");
-        printf("2. Créer une nouvelle réservation\n");
-        printf("3. Afficher les détails des bus (num,destinations...)\n");
-        printf("4. Afficher et modifier les détails d'une réservation\n");
+        printf("1. Creer un nouveau compte voyageur\n");
+        printf("2. Creer une nouvelle reservation\n");
+        printf("3. Afficher les details des bus (num,destinations...)\n");
+        printf("4. Afficher et modifier les details d'une reservation\n");
         printf("5. Nous envoyer votre avis\n");
         printf("0. Quitter\n");
         printf("Entrez votre choix : ");
@@ -186,7 +186,7 @@ int main() {
                 printf("Au revoir !\n");
                 break;
             default:
-                printf("Choix invalide. Veuillez réessayer.\n");
+                printf("Choix invalide. Veuillez rÃ©essayer.\n");
         }
 
     } while (choix != 0);
